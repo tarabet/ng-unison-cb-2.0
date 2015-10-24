@@ -1,6 +1,9 @@
 ngApp.directive('marketProducts', function ($compile, ajaxSvc) {
 
-    var url = "https://apex.oracle.com/pls/apex/aleksey_ws_2015/interface/homepage/GetMarketingBlocks";
+    var url = "http://192.168.50.56:8080/ords/virtualbranch_ws/interface/KeyAdvantages/1";
+    //var url = "http://192.168.50.56:8080/ords/virtualbranch_ws/interface/SliderBlock/1";
+    //var url = "http://192.168.50.56:8080/ords/virtualbranch_ws/interface/QuickMenu/1";
+
     var templateUrl = "js/partials/dir-tmpl/key-advantage-tmpl.html";
     var template;
 
@@ -43,7 +46,7 @@ ngApp.directive('marketProducts', function ($compile, ajaxSvc) {
             ajaxSvc.getData(url)
                 .then(function(response) {
                     scope.marketData = response.data;
-                    console.log(scope.marketData);
+                    console.log('Advantages obj is:', scope.marketData);
                 },
                 function(response) {
                     console.log('Some error happened: ', response);
